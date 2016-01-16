@@ -18,4 +18,13 @@
         android:text="Hello World!"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
+    <library.colortextview.view.ColorTextView
+        android:id="@+id/colorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="hello"
+        android:layout_below="@+id/textview"/>
+
 </RelativeLayout>

@@ -5,22 +5,25 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.SpannableStringBuilder;
 import android.text.TextPaint;
 import android.text.style.BackgroundColorSpan;
-import android.text.style.ClickableSpan;
 import android.text.style.DynamicDrawableSpan;
-import android.view.View;
 import android.widget.TextView;
+
+import com.facebook.drawee.backends.pipeline.Fresco;
+
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 
 import library.colortextview.BoxModelSpanBuilder;
 import library.colortextview.FillHeightImageSpan;
 import library.colortextview.LabelSpan;
 import library.colortextview.SpanStr;
+import library.colortextview.view.ColorTextView;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -94,8 +97,30 @@ public class MainActivity extends AppCompatActivity {
 
         // init spans
         SpannableStringBuilder ssb = BoxModelSpanBuilder.build(strs);
+        ((TextView) this.findViewById(R.id.textview)).setText(ssb);
 
-            ((TextView) this.findViewById(R.id.textview)).setText(ssb);
+
+        Fresco.initialize(this);
+        ((ColorTextView) this.findViewById(R.id.colorTextView)).setColorText(new FrescoBitmapFactory(), readAssetString("str.json"), " ENDEND");
+    }
+
+    private String readAssetString(String filename) {
+        try {
+            InputStreamReader isr = new InputStreamReader(this.getResources().getAssets().open(filename));
+            StringWriter sw = new StringWriter();
+            char[] buff = new char[512];
+            int read = 0;
+            while((read = isr.read(buff, 0, 512)) > 0) {
+                sw.write(buff, 0, read);
+            }
+            isr.close();
+            return sw.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return "nothing";
     }
 
 }
