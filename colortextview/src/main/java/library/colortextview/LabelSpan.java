@@ -55,7 +55,7 @@ public class LabelSpan extends BoxModelSpan {
         int originFg = 0;
 
         float originSize = paint.getTextSize();
-        float originAscent = paint.getFontMetrics().top;
+        float originTop = paint.getFontMetrics().top;
         if (mMargin.top != 0 || mMargin.bottom != 0) {
             paint.setTextSize(originSize - mMargin.top - mMargin.bottom);
         }
@@ -64,14 +64,15 @@ public class LabelSpan extends BoxModelSpan {
             paint.setColor(mFgColor);
         }
 
+        float newBaseLine = 0 /* translateY */ + originTop + mMargin.top - paint.getFontMetrics().top;
         if (isBg) {
             Rect cache = new Rect(mBgRect);
-            cache.bottom = paint.getFontMetricsInt().bottom;
-            cache.top = paint.getFontMetricsInt().top;
+            cache.top = (int)newBaseLine + paint.getFontMetricsInt().top;
+            cache.bottom = (int)newBaseLine + paint.getFontMetricsInt().bottom;
             canvas.drawRect(cache, mBgPaint);
         }
 
-        canvas.drawText(text.subSequence(start, end).toString(), mBgRect.left + mPadding.left, mMargin.top + originAscent - paint.getFontMetrics().top, paint);
+        canvas.drawText(text.subSequence(start, end).toString(), mBgRect.left + mPadding.left, newBaseLine, paint);
         if (isFg) {
             paint.setColor(originFg);
         }
