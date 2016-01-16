@@ -96,12 +96,14 @@ public class MainActivity extends AppCompatActivity {
         };
 
         // init spans
-        SpannableStringBuilder ssb = BoxModelSpanBuilder.build(strs);
+        SpannableStringBuilder ssb = BoxModelSpanBuilder.build(null, strs);
         ((TextView) this.findViewById(R.id.textview)).setText(ssb);
 
 
         Fresco.initialize(this);
         ((ColorTextView) this.findViewById(R.id.colorTextView)).setColorText(new FrescoBitmapFactory(), readAssetString("str.json"), " ENDEND");
+        ((ColorTextView) this.findViewById(R.id.colorTextView2)).setColorText(new FrescoBitmapFactory(), readAssetString("str.json"), " ENDEND");
+
     }
 
     private String readAssetString(String filename) {

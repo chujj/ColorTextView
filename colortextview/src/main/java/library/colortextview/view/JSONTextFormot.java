@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import library.colortextview.BoxModelSpan;
 import library.colortextview.BoxModelSpanBuilder;
 import library.colortextview.FillHeightImageSpan;
 import library.colortextview.LabelSpan;
@@ -26,6 +27,7 @@ import library.colortextview.SpanStr;
  */
 public class JSONTextFormot {
 
+    private BoxModelSpan.BoxModelDimensionProvider mDimensionProvider;
     private Holder mHolder;
     public BitmapQueryFactory mBitmapQueryFactory;
 
@@ -128,11 +130,12 @@ public class JSONTextFormot {
     }
 
     public JSONTextFormot(BitmapQueryFactory factory, final TextView view, String json) {
-        this(factory, view, json, null);
+        this(factory, view, json, null, null);
     }
 
-    public JSONTextFormot(BitmapQueryFactory factory, final TextView view, String json, String appendText) {
+    public JSONTextFormot(BitmapQueryFactory factory, final TextView view, String json, BoxModelSpan.BoxModelDimensionProvider dimensionProvider,String appendText) {
         mBitmapQueryFactory = factory;
+        mDimensionProvider = dimensionProvider;
         mDefaultBitmap = BitmapFactory.decodeResource(view.getContext().getResources(), R.drawable.ic_launcher);
 
         String retval = null;
@@ -197,7 +200,7 @@ public class JSONTextFormot {
         spans.toArray(sss);
 
         // set it
-        view.setText(new BoxModelSpanBuilder().build(sss));
+        view.setText(new BoxModelSpanBuilder().build(mDimensionProvider, sss));
     }
 
     public static class Font {

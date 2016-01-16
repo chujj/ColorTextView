@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ColorTextView">
+        <!-- text -->
+        <attr name="label_marginLeft" format="dimension"/>
+        <attr name="label_marginTop" format="dimension"/>
+        <attr name="label_marginRight" format="dimension"/>
+        <attr name="label_marginBottom" format="dimension"/>
+        <attr name="label_paddingLeft" format="dimension"/>
+        <attr name="label_paddingRight" format="dimension"/>
+
+        <!-- image -->
+        <attr name="image_marginLeft" format="dimension"/>
+        <attr name="image_marginRight" format="dimension"/>
+    </declare-styleable>
+</resources>

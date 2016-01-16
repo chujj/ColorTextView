@@ -8,7 +8,7 @@ import android.text.Spanned;
  */
 public class BoxModelSpanBuilder {
 
-    public static SpannableStringBuilder build(SpanStr ... strs) {
+    public static SpannableStringBuilder build(BoxModelSpan.BoxModelDimensionProvider provider, SpanStr ... strs) {
 
         SpannableStringBuilder ssb = new SpannableStringBuilder(getSpansString(strs));
         int start = 0;
@@ -18,6 +18,16 @@ public class BoxModelSpanBuilder {
             if (ss.span == null) {
                 start += length;
                 continue;
+            }
+
+            if (provider != null && ss.span instanceof BoxModelSpan) {
+                if (ss.span instanceof LabelSpan) {
+                    ((LabelSpan)ss.span).setMargin(provider.getLableMargin());
+                    ((LabelSpan)ss.span).setPadding(provider.getLablePadding());
+                } else if (ss.span instanceof FillHeightImageSpan) {
+                    ((FillHeightImageSpan)ss.span).setMargin(provider.getImageMargin());
+                    ((FillHeightImageSpan)ss.span).setPadding(provider.getImagePadding());
+                }
             }
 
             ssb.setSpan(ss.span, start, start + length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
