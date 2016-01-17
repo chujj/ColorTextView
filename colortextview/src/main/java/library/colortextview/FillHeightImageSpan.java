@@ -12,6 +12,7 @@ import android.graphics.drawable.Drawable;
 public class FillHeightImageSpan extends BoxModelSpan<FillHeightImageSpan> {
     private Bitmap mBitmap;
     private Rect mRect;
+    private Rect mDrawRect;
 
     public FillHeightImageSpan(Bitmap bitmap) {
         this(bitmap, 0, 0);
@@ -20,6 +21,7 @@ public class FillHeightImageSpan extends BoxModelSpan<FillHeightImageSpan> {
     public FillHeightImageSpan(Bitmap bitmap, int marginLeft, int marginRight) {
         mBitmap = bitmap;
         mRect = new Rect();
+        mDrawRect = new Rect();
         setMargin(marginLeft, 0, marginRight, 0);
     }
 
@@ -41,8 +43,11 @@ public class FillHeightImageSpan extends BoxModelSpan<FillHeightImageSpan> {
     @Override
     public void draw(Canvas canvas, CharSequence text, int start, int end, float x, int top, int y, int bottom, Paint paint) {
         canvas.save();
-        canvas.translate(x, y + paint.getFontMetricsInt().ascent);
-        canvas.drawBitmap(mBitmap, null, mRect, paint);
+        canvas.translate(x, top);
+        mDrawRect.set(mRect);
+        mDrawRect.top = 0;
+        mDrawRect.bottom = bottom - top;
+        canvas.drawBitmap(mBitmap, null, mDrawRect, paint);
         canvas.restore();
     }
 

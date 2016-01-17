@@ -17,12 +17,15 @@ public class LabelSpan extends BoxModelSpan {
     private Rect mBgRect;
     private Paint mBgPaint;
 
+    private Rect mDrawCacheRect;
+
     public LabelSpan(boolean fg, int fgColor, boolean bg, int bgColor) {
         isFg = fg;
         mFgColor = fgColor;
         isBg = bg;
         mBgColor = bgColor;
         mBgRect = new Rect();
+        mDrawCacheRect = new Rect();
         mBgPaint = new Paint();
         mBgPaint.setColor(bgColor);
     }
@@ -66,10 +69,10 @@ public class LabelSpan extends BoxModelSpan {
 
         float newBaseLine = 0 /* translateY */ + originTop + mMargin.top - paint.getFontMetrics().top;
         if (isBg) {
-            Rect cache = new Rect(mBgRect);
-            cache.top = (int)newBaseLine + paint.getFontMetricsInt().top;
-            cache.bottom = (int)newBaseLine + paint.getFontMetricsInt().bottom;
-            canvas.drawRect(cache, mBgPaint);
+            mDrawCacheRect.set(mBgRect);
+            mDrawCacheRect.top = Math.max((top - y), (int)newBaseLine + paint.getFontMetricsInt().top);
+            mDrawCacheRect.bottom = Math.min((bottom - y) , (int)newBaseLine + paint.getFontMetricsInt().bottom);
+            canvas.drawRect(mDrawCacheRect, mBgPaint);
         }
 
         canvas.drawText(text.subSequence(start, end).toString(), mBgRect.left + mPadding.left, newBaseLine, paint);
