@@ -17,8 +17,10 @@ import library.colortextview.R;
 public class ColorTextView extends TextView {
 
     private JSONTextFormot mJSONTextFormot;
-    private Rect mBoxLableMargin, mBoxLablePadding;
-    private Rect mBoxImageMargin, mBoxImagePadding;
+    private Rect mBoxLableMargin = new Rect();
+    private Rect mBoxLablePadding = new Rect();
+    private Rect mBoxImageMargin = new Rect();
+    private Rect mBoxImagePadding = new Rect();
 
 
     public ColorTextView(Context context) {
@@ -42,11 +44,6 @@ public class ColorTextView extends TextView {
     }
 
     private void init(AttributeSet attrs) {
-        mBoxLableMargin = new Rect();
-        mBoxLablePadding = new Rect();
-        mBoxImageMargin = new Rect();
-        mBoxImagePadding = new Rect();
-
         TypedArray a = this.getContext().getTheme().obtainStyledAttributes(
             attrs,
             R.styleable.ColorTextView,
