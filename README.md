@@ -1,9 +1,11 @@
 # ColorTextView
 
 View:
-	<library.colortextview.view.ColorTextView/>
+
+    <library.colortextview.view.ColorTextView/>
 
 attrs:
+
     app:image_marginLeft="10dp"
     app:image_marginRight="10dp"
     app:label_paddingLeft="2dp"
@@ -14,4 +16,4 @@ attrs:
     app:label_marginBottom="5dp"
 
 
-[snapshot](./snapshot123.png)
+![snapshot](./snapshot123.png)
