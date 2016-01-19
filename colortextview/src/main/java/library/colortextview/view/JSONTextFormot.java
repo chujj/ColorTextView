@@ -200,7 +200,8 @@ public class JSONTextFormot {
         spans.toArray(sss);
 
         // set it
-        view.setText(new BoxModelSpanBuilder().build(mDimensionProvider, sss));
+        // http://stackoverflow.com/a/26131208/5366967
+        view.setText(new BoxModelSpanBuilder().build(mDimensionProvider, sss), TextView.BufferType.SPANNABLE);
     }
 
     public static class Font {
