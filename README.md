@@ -4,6 +4,10 @@ View:
 
     <library.colortextview.view.ColorTextView/>
 
+Method:
+
+	ColorTextView.setColorText(...)
+
 attrs:
 
     app:image_marginLeft="10dp"
@@ -14,6 +18,7 @@ attrs:
     app:label_marginRight="2dp"
     app:label_marginTop="5dp"
     app:label_marginBottom="5dp"
+
 
 
 ![snapshot](./snapshot123.png)

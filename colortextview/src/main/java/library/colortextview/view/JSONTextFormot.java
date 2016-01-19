@@ -144,7 +144,7 @@ public class JSONTextFormot {
             if (!TextUtils.isEmpty(appendText)) {
                 Font appendFont = new Font();
                 appendFont.type = Font.TEXT;
-                appendFont.message = appendText;
+                appendFont.body = appendText;
                 mFontTree.add(appendFont);
             }
 
@@ -178,9 +178,9 @@ public class JSONTextFormot {
                         !TextUtils.isEmpty(colorStr), (Integer.parseInt(colorStr, 16) + 0xff000000),
                         !TextUtils.isEmpty(bgStr) , (Integer.parseInt(bgStr, 16) + 0xff000000));
 
-                    spans.add(new SpanStr(font.message, unit));
+                    spans.add(new SpanStr(font.body, unit));
                 } else {
-                    spans.add(new SpanStr(font.message, null));
+                    spans.add(new SpanStr(font.body, null));
                 }
             } else if (font.type.equals(Font.IMG)){
                 Bitmap bitmap = (fireBitmapReq ? mDefaultBitmap : ((holder.getBitmap(font.url) != null) ? holder.getBitmap(font.url) : mDefaultBitmap));
@@ -188,7 +188,7 @@ public class JSONTextFormot {
                 spans.add(new SpanStr("img", new FillHeightImageSpan(bitmap)));
 
                 final String url = font.url;
-                if (fireBitmapReq) {
+                if (fireBitmapReq && mBitmapQueryFactory != null) {
                     mBitmapQueryFactory.create().setUrl(url).setHolder(holder).start();
                 }
             } else {
@@ -209,7 +209,7 @@ public class JSONTextFormot {
         public String type;
 
         // text
-        public String message;
+        public String body;
         public String color;
         public String backgroundColor;
         // image

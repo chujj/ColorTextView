@@ -1,23 +1,23 @@
 [
   {
     "type": "text",
-    "message": "中文",
+    "body": "中文",
     "color": "ff00ff",
     "backgroundColor": "00ff00"
   },
   {
     "type": "text",
-    "message": "hello"
+    "body": "hello"
   },
   {
     "type": "text",
-    "message": "world ntoh snth nt 8",
+    "body": "world ntoh snth nt 8",
     "color": "ff0000",
     "backgroundColor": "00ff00"
   },
   {
     "type": "text",
-    "message": "hello world change the world",
+    "body": "hello world change the world",
     "color": null,
     "backgroundColor": null
   },
@@ -27,7 +27,7 @@
   },
   {
     "type": "text",
-    "message": "hello world change the world",
+    "body": "hello world change the world",
     "color": null,
     "backgroundColor": null
   },
@@ -37,6 +37,6 @@
   },
   {
     "type": "text",
-    "message": "test end"
+    "body": "test end"
   }
 ]
