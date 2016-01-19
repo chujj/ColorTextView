@@ -28,7 +28,7 @@ public class FrescoBitmapFactory implements  JSONTextFormot.BitmapQueryFactory {
     public class MyBitmapQueier extends JSONTextFormot.BitmapQuery {
 
         @Override
-        public void start() {
+        public void start(Object obj, int w, int h) {
             ImagePipeline imagePipeline = Fresco.getImagePipeline();
             DataSource<CloseableReference<CloseableImage>>
                 dataSource = imagePipeline.fetchDecodedImage(ImageRequest.fromUri(mUrl), this);

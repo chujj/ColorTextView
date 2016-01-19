@@ -51,7 +51,7 @@ public class JSONTextFormot {
             return this;
         }
 
-        public abstract void start();
+        public abstract void start(Object obj, int width, int height);
 
 
         public void onBitmapGet(Bitmap bitmap) {
@@ -189,7 +189,7 @@ public class JSONTextFormot {
 
                 final String url = font.url;
                 if (fireBitmapReq && mBitmapQueryFactory != null) {
-                    mBitmapQueryFactory.create().setUrl(url).setHolder(holder).start();
+                    mBitmapQueryFactory.create().setUrl(url).setHolder(holder).start(font, font.width, font.height);
                 }
             } else {
 
@@ -214,5 +214,7 @@ public class JSONTextFormot {
         public String backgroundColor;
         // image
         public String url;
+        public int width;
+        public int height;
     }
 }
