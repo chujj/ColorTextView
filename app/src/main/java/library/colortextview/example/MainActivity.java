@@ -104,6 +104,7 @@ public class MainActivity extends AppCompatActivity {
         ((ColorTextView) this.findViewById(R.id.colorTextView)).setColorText(new FrescoBitmapFactory(), readAssetString("str.json"), " ENDEND");
         ((ColorTextView) this.findViewById(R.id.colorTextView2)).setColorText(new FrescoBitmapFactory(), readAssetString("str.json"), " ENDEND");
         ((ColorTextView) this.findViewById(R.id.colorTextView3)).setColorText(new FrescoBitmapFactory(), readAssetString("str.json"), " ENDEND");
+        ((ColorTextView) this.findViewById(R.id.colorTextView4)).setColorText(new FrescoBitmapFactory(), readAssetString("str.json"), " ENDEND");
 
     }
 

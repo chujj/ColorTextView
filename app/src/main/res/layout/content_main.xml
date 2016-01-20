@@ -62,4 +62,22 @@
         app:label_marginBottom="5dp"
         android:textSize="25sp"
         />
+    <library.colortextview.view.ColorTextView
+        android:id="@+id/colorTextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:text="hello"
+        android:layout_below="@+id/colorTextView3"
+        app:image_marginLeft="10dp"
+        app:image_marginRight="10dp"
+        app:label_paddingLeft="2dp"
+        app:label_paddingRight="2dp"
+        app:label_marginLeft="2dp"
+        app:label_marginRight="2dp"
+        app:label_marginTop="5dp"
+        app:label_marginBottom="5dp"
+        app:image_maxHeight="12dp"
+        android:textSize="25sp"
+        />
 </RelativeLayout>

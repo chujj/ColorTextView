@@ -27,6 +27,7 @@ public class BoxModelSpanBuilder {
                 } else if (ss.span instanceof FillHeightImageSpan) {
                     ((FillHeightImageSpan)ss.span).setMargin(provider.getImageMargin());
                     ((FillHeightImageSpan)ss.span).setPadding(provider.getImagePadding());
+                    ((FillHeightImageSpan)ss.span).setMaxHeight(provider.getImageMaxHeight());
                 }
             }
 

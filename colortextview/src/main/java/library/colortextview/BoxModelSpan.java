@@ -13,6 +13,7 @@ public abstract class BoxModelSpan<T extends BoxModelSpan> extends DynamicDrawab
         public Rect getLablePadding();
         public Rect getImageMargin();
         public Rect getImagePadding();
+        public int getImageMaxHeight();
     }
 
     protected Rect mMargin, mPadding;

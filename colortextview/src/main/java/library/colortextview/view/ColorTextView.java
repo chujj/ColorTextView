@@ -21,6 +21,7 @@ public class ColorTextView extends TextView {
     private Rect mBoxLablePadding = new Rect();
     private Rect mBoxImageMargin = new Rect();
     private Rect mBoxImagePadding = new Rect();
+    private int mBoxImageMaxHeight;
 
 
     public ColorTextView(Context context) {
@@ -59,6 +60,7 @@ public class ColorTextView extends TextView {
 
             mBoxImageMargin.left   =a.getDimensionPixelSize(R.styleable.ColorTextView_image_marginLeft, 0);
             mBoxImageMargin.right  =a.getDimensionPixelSize(R.styleable.ColorTextView_image_marginRight, 0);
+            mBoxImageMaxHeight =    a.getDimensionPixelSize(R.styleable.ColorTextView_image_maxHeight, -1);
         } finally {
             a.recycle();
         }
@@ -84,6 +86,11 @@ public class ColorTextView extends TextView {
         @Override
         public Rect getImagePadding() {
             return mBoxImagePadding;
+        }
+
+        @Override
+        public int getImageMaxHeight() {
+            return mBoxImageMaxHeight;
         }
 
     };
