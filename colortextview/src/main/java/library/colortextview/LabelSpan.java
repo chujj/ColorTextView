@@ -18,6 +18,7 @@ public class LabelSpan extends BoxModelSpan {
     private Paint mBgPaint;
 
     private Rect mDrawCacheRect;
+    private Rect mExtra;
 
     public LabelSpan(boolean fg, int fgColor, boolean bg, int bgColor) {
         isFg = fg;
@@ -28,6 +29,12 @@ public class LabelSpan extends BoxModelSpan {
         mDrawCacheRect = new Rect();
         mBgPaint = new Paint();
         mBgPaint.setColor(bgColor);
+        mExtra = new Rect();
+    }
+
+
+    public void setExtra(Rect labelExtra) {
+        mExtra.set(labelExtra);
     }
 
     @Override
@@ -75,7 +82,7 @@ public class LabelSpan extends BoxModelSpan {
             canvas.drawRect(mDrawCacheRect, mBgPaint);
         }
 
-        canvas.drawText(text.subSequence(start, end).toString(), mBgRect.left + mPadding.left, newBaseLine, paint);
+        canvas.drawText(text.subSequence(start, end).toString(), mBgRect.left + mPadding.left + mExtra.left, newBaseLine + mExtra.top, paint);
         if (isFg) {
             paint.setColor(originFg);
         }
@@ -90,4 +97,5 @@ public class LabelSpan extends BoxModelSpan {
     public Drawable getDrawable() {
         return null;
     }
+
 }

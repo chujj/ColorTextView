@@ -19,6 +19,7 @@ public class ColorTextView extends TextView {
     private JSONTextFormot mJSONTextFormot;
     private Rect mBoxLableMargin = new Rect();
     private Rect mBoxLablePadding = new Rect();
+    private Rect mBoxLabelExtra = new Rect();
     private Rect mBoxImageMargin = new Rect();
     private Rect mBoxImagePadding = new Rect();
     private int mBoxImageMaxHeight;
@@ -57,6 +58,8 @@ public class ColorTextView extends TextView {
             mBoxLableMargin.bottom =a.getDimensionPixelSize(R.styleable.ColorTextView_label_marginBottom, 0);
             mBoxLablePadding.left = a.getDimensionPixelSize(R.styleable.ColorTextView_label_paddingLeft,  0);
             mBoxLablePadding.right =a.getDimensionPixelSize(R.styleable.ColorTextView_label_paddingRight, 0);
+            mBoxLabelExtra.left =   a.getDimensionPixelSize(R.styleable.ColorTextView_label_extraLeft, 0);
+            mBoxLabelExtra.top=     a.getDimensionPixelSize(R.styleable.ColorTextView_label_extraTop, 0);
 
             mBoxImageMargin.left   =a.getDimensionPixelSize(R.styleable.ColorTextView_image_marginLeft, 0);
             mBoxImageMargin.right  =a.getDimensionPixelSize(R.styleable.ColorTextView_image_marginRight, 0);
@@ -76,6 +79,11 @@ public class ColorTextView extends TextView {
         @Override
         public Rect getLablePadding() {
             return mBoxLablePadding;
+        }
+
+        @Override
+        public Rect getLabelExtra() {
+            return mBoxLabelExtra;
         }
 
         @Override

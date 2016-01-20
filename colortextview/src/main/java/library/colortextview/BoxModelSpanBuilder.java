@@ -24,6 +24,7 @@ public class BoxModelSpanBuilder {
                 if (ss.span instanceof LabelSpan) {
                     ((LabelSpan)ss.span).setMargin(provider.getLableMargin());
                     ((LabelSpan)ss.span).setPadding(provider.getLablePadding());
+                    ((LabelSpan)ss.span).setExtra(provider.getLabelExtra());
                 } else if (ss.span instanceof FillHeightImageSpan) {
                     ((FillHeightImageSpan)ss.span).setMargin(provider.getImageMargin());
                     ((FillHeightImageSpan)ss.span).setPadding(provider.getImagePadding());

@@ -8,6 +8,8 @@
         <attr name="label_marginBottom" format="dimension"/>
         <attr name="label_paddingLeft" format="dimension"/>
         <attr name="label_paddingRight" format="dimension"/>
+        <attr name="label_extraLeft" format="dimension"/>
+        <attr name="label_extraTop" format="dimension"/>
 
         <!-- image -->
         <attr name="image_marginLeft" format="dimension"/>

@@ -11,6 +11,7 @@ public abstract class BoxModelSpan<T extends BoxModelSpan> extends DynamicDrawab
     public static interface BoxModelDimensionProvider {
         public Rect getLableMargin();
         public Rect getLablePadding();
+        public Rect getLabelExtra();
         public Rect getImageMargin();
         public Rect getImagePadding();
         public int getImageMaxHeight();
