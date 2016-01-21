@@ -129,10 +129,10 @@ public class JSONTextFormot {
     }
 
     public JSONTextFormot(BitmapQueryFactory factory, final TextView view, String json) {
-        this(factory, view, json, null, null);
+        this(factory, view, json, null, 0, null);
     }
 
-    public JSONTextFormot(BitmapQueryFactory factory, final TextView view, String json, BoxModelSpan.BoxModelDimensionProvider dimensionProvider,String appendText) {
+    public JSONTextFormot(BitmapQueryFactory factory, final TextView view, String json, BoxModelSpan.BoxModelDimensionProvider dimensionProvider, int placeHolderRes,String appendText) {
         if (TextUtils.isEmpty(json)) {
             view.setText(appendText);
             return;
@@ -140,7 +140,11 @@ public class JSONTextFormot {
 
         mBitmapQueryFactory = factory;
         mDimensionProvider = dimensionProvider;
-        mDefaultBitmap = BitmapFactory.decodeResource(view.getContext().getResources(), R.drawable.ic_launcher);
+        if (placeHolderRes != 0) {
+            mDefaultBitmap = BitmapFactory.decodeResource(view.getContext().getResources(), placeHolderRes);
+        } else {
+            mDefaultBitmap = BitmapFactory.decodeResource(view.getContext().getResources(), R.drawable.ic_launcher);
+        }
 
         String retval = null;
         try {

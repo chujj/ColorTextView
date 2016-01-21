@@ -69,4 +69,5 @@ public class FillHeightImageSpan extends BoxModelSpan<FillHeightImageSpan> {
     public void setMaxHeight(int imageMaxHeight) {
         mImageMaxHeight = imageMaxHeight;
     }
+
 }

@@ -84,6 +84,7 @@
             app:image_maxHeight="12dp"
             app:label_extraLeft="5dp"
             app:label_extraTop="5dp"
+            app:image_placeholder="@drawable/lego"
             android:textSize="25sp"
             />
     </LinearLayout>

@@ -23,6 +23,7 @@ public class ColorTextView extends TextView {
     private Rect mBoxImageMargin = new Rect();
     private Rect mBoxImagePadding = new Rect();
     private int mBoxImageMaxHeight;
+    private int mBoxImagePlaceHolderRes = 0;
 
 
     public ColorTextView(Context context) {
@@ -64,6 +65,7 @@ public class ColorTextView extends TextView {
             mBoxImageMargin.left   =a.getDimensionPixelSize(R.styleable.ColorTextView_image_marginLeft, 0);
             mBoxImageMargin.right  =a.getDimensionPixelSize(R.styleable.ColorTextView_image_marginRight, 0);
             mBoxImageMaxHeight =    a.getDimensionPixelSize(R.styleable.ColorTextView_image_maxHeight, -1);
+            mBoxImagePlaceHolderRes = a.getResourceId(R.styleable.ColorTextView_image_placeholder, 0);
         } finally {
             a.recycle();
         }
@@ -108,7 +110,7 @@ public class ColorTextView extends TextView {
             mJSONTextFormot.stopAsync();
         }
 
-        mJSONTextFormot = new JSONTextFormot(factory, this, str, provider, appendText);
+        mJSONTextFormot = new JSONTextFormot(factory, this, str, provider, mBoxImagePlaceHolderRes, appendText);
     }
 
     @Override
