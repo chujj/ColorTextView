@@ -107,6 +107,14 @@ public class ColorTextView extends TextView {
 
     public void setColorText(JSONTextFormot.BitmapQueryFactory factory, String str, String appendText) {
         if (mJSONTextFormot != null) {
+
+            if (((mJSONTextFormot.mJsonData == null && str == null) || (mJSONTextFormot.mJsonData.equals(str))) &&
+                ((mJSONTextFormot.mAppendTextData == null && appendText == null) || (mJSONTextFormot.mAppendTextData.equals(appendText)))
+                ) {
+                return;
+            }
+
+
             mJSONTextFormot.stopAsync();
         }
 

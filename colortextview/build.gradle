@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 
+
 ext {
     bintrayRepo = 'maven'
     bintrayName = 'ColorTextView'
@@ -13,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/chujj/PullRefreshRecyclerView'
     gitUrl = 'https://github.com/chujj/PullRefreshRecyclerView'
 
-    libraryVersion = '0.0.8'
+    libraryVersion = '0.0.10'
 
     developerId = 'chujj'
     developerName = 'chujj'
@@ -23,6 +24,8 @@ ext {
     licenseUrl = 'https://opensource.org/licenses/MIT'
     allLicenses = ["MIT"]
 }
+
+
 
 android {
     compileSdkVersion 23

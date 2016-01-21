@@ -132,7 +132,12 @@ public class JSONTextFormot {
         this(factory, view, json, null, 0, null);
     }
 
+    protected final String mJsonData;
+    protected final String mAppendTextData;
     public JSONTextFormot(BitmapQueryFactory factory, final TextView view, String json, BoxModelSpan.BoxModelDimensionProvider dimensionProvider, int placeHolderRes,String appendText) {
+        mJsonData = json;
+        mAppendTextData = appendText;
+
         if (TextUtils.isEmpty(json)) {
             view.setText(appendText);
             return;
