@@ -60,8 +60,7 @@ public class JSONTextFormot {
 
     }
 
-    private final static String DefaltData = "";
-    private final Bitmap mDefaultBitmap;
+    private Bitmap mDefaultBitmap;
 
     private List<Font> mFontTree;
 
@@ -126,7 +125,7 @@ public class JSONTextFormot {
     }
 
     public JSONTextFormot(BitmapQueryFactory factory, TextView viewById) {
-        this(factory, viewById, DefaltData);
+        this(factory, viewById, null);
     }
 
     public JSONTextFormot(BitmapQueryFactory factory, final TextView view, String json) {
@@ -134,6 +133,11 @@ public class JSONTextFormot {
     }
 
     public JSONTextFormot(BitmapQueryFactory factory, final TextView view, String json, BoxModelSpan.BoxModelDimensionProvider dimensionProvider,String appendText) {
+        if (TextUtils.isEmpty(json)) {
+            view.setText(appendText);
+            return;
+        }
+
         mBitmapQueryFactory = factory;
         mDimensionProvider = dimensionProvider;
         mDefaultBitmap = BitmapFactory.decodeResource(view.getContext().getResources(), R.drawable.ic_launcher);

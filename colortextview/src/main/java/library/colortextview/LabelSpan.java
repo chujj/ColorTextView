@@ -82,7 +82,8 @@ public class LabelSpan extends BoxModelSpan {
             canvas.drawRect(mDrawCacheRect, mBgPaint);
         }
 
-        canvas.drawText(text.subSequence(start, end).toString(), mBgRect.left + mPadding.left + mExtra.left, newBaseLine + mExtra.top, paint);
+        // .toString() will low down CPU cause
+        canvas.drawText(text.toString().subSequence(start, end).toString(), mBgRect.left + mPadding.left + mExtra.left, newBaseLine + mExtra.top, paint);
         if (isFg) {
             paint.setColor(originFg);
         }

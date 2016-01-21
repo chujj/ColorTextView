@@ -110,4 +110,25 @@ public class ColorTextView extends TextView {
 
         mJSONTextFormot = new JSONTextFormot(factory, this, str, provider, appendText);
     }
+
+    @Override
+    public void invalidate(Rect dirty) {
+        super.invalidate(dirty);
+    }
+
+    @Override
+    public void invalidate() {
+        super.invalidate();
+    }
+
+    @Override
+    public void invalidate(int l, int t, int r, int b) {
+        super.invalidate(l, t, r, b);
+    }
+
+    @Override
+    public void postInvalidate() {
+        super.postInvalidate();
+    }
 }
+
