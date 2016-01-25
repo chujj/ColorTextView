@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven'
 
 ext {
     bintrayRepo = 'maven'
@@ -13,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/chujj/PullRefreshRecyclerView'
     gitUrl = 'https://github.com/chujj/PullRefreshRecyclerView'
 
-    libraryVersion = '0.0.12'
+    libraryVersion = '0.0.13'
 
     developerId = 'chujj'
     developerName = 'chujj'
@@ -23,6 +24,7 @@ ext {
     licenseUrl = 'https://opensource.org/licenses/MIT'
     allLicenses = ["MIT"]
 }
+
 
 
 android {

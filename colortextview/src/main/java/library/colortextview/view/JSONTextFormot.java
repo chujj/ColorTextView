@@ -186,6 +186,14 @@ public class JSONTextFormot {
                 String colorStr = font.color;
                 String bgStr = font.bg_color;
 
+                if (!TextUtils.isEmpty(bgStr) && bgStr.startsWith("#")) {
+                    bgStr = bgStr.substring(1);
+                }
+
+                if (!TextUtils.isEmpty(colorStr) && colorStr.startsWith("#")) {
+                    colorStr = colorStr.substring(1);
+                }
+
                 if (!TextUtils.isEmpty(colorStr) || !TextUtils.isEmpty(bgStr)) {
                     LabelSpan unit = new LabelSpan(
                         !TextUtils.isEmpty(colorStr), !TextUtils.isEmpty(colorStr) ? (Integer.parseInt(colorStr, 16) + 0xff000000) : 0xff000000,
