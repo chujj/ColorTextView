@@ -22,7 +22,7 @@ public class ColorTextView extends TextView {
     private Rect mBoxLabelExtra = new Rect();
     private Rect mBoxImageMargin = new Rect();
     private Rect mBoxImagePadding = new Rect();
-    private int mBoxImageMaxHeight;
+    private int mBoxImageMaxHeight = -1;
     private int mBoxImagePlaceHolderRes = 0;
 
 
