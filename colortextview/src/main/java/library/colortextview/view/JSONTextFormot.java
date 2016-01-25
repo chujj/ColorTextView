@@ -184,12 +184,12 @@ public class JSONTextFormot {
         for(Font font : mFontTree) {
             if (font.type.equals(Font.TEXT)) {
                 String colorStr = font.color;
-                String bgStr = font.backgroundColor;
+                String bgStr = font.bg_color;
 
                 if (!TextUtils.isEmpty(colorStr) || !TextUtils.isEmpty(bgStr)) {
                     LabelSpan unit = new LabelSpan(
-                        !TextUtils.isEmpty(colorStr), (Integer.parseInt(colorStr, 16) + 0xff000000),
-                        !TextUtils.isEmpty(bgStr) , (Integer.parseInt(bgStr, 16) + 0xff000000));
+                        !TextUtils.isEmpty(colorStr), !TextUtils.isEmpty(colorStr) ? (Integer.parseInt(colorStr, 16) + 0xff000000) : 0xff000000,
+                        !TextUtils.isEmpty(bgStr) , !TextUtils.isEmpty(bgStr)  ? (Integer.parseInt(bgStr, 16) + 0xff000000) : 0xffffffff);
 
                     spans.add(new SpanStr(font.body, unit));
                 } else {
@@ -225,7 +225,7 @@ public class JSONTextFormot {
         // text
         public String body;
         public String color;
-        public String backgroundColor;
+        public String bg_color;
         // image
         public String url;
         public int width;

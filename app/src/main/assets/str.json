@@ -3,7 +3,7 @@
     "type": "text",
     "body": "中文",
     "color": "ff00ff",
-    "backgroundColor": "00ff00"
+    "bg_color": "00ff00"
   },
   {
     "type": "text",
@@ -13,13 +13,13 @@
     "type": "text",
     "body": "world ntoh snth nt 8",
     "color": "ff0000",
-    "backgroundColor": "00ff00"
+    "bg_color": "00ff00"
   },
   {
     "type": "text",
     "body": "hello world change the world",
     "color": null,
-    "backgroundColor": null
+    "bg_color": null
   },
   {
     "type": "image",
@@ -29,7 +29,7 @@
     "type": "text",
     "body": "hello world change the world",
     "color": null,
-    "backgroundColor": null
+    "bg_color": null
   },
   {
     "type": "image",
