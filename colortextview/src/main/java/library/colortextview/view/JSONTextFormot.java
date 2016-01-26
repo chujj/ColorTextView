@@ -8,6 +8,8 @@ import android.text.TextUtils;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 
 import java.util.ArrayList;
@@ -228,15 +230,29 @@ public class JSONTextFormot {
     public static class Font {
         public final static String TEXT = "text";
         public final static String IMG = "image";
+        @SerializedName("type")
+        @Expose
         public String type;
 
         // text
+        @SerializedName("body")
+        @Expose
         public String body;
+        @SerializedName("color")
+        @Expose
         public String color;
+        @SerializedName("bg_color")
+        @Expose
         public String bg_color;
         // image
+        @SerializedName("url")
+        @Expose
         public String url;
+        @SerializedName("width")
+        @Expose
         public int width;
+        @SerializedName("height")
+        @Expose
         public int height;
     }
 }
